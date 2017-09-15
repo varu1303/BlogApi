@@ -18,6 +18,8 @@ route(app);
 app.use(function(err, req, res, next) {
     if (err.status == 404)
         res.status(404).json({ error: 'PAGE DOES NOT EXIST' });
+    else if (err.status ==400)
+        res.json({error : "BAD JSON"});
 });
 
 //Listening to port 3000 for requests
